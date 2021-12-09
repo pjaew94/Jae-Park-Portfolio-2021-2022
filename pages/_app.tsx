@@ -1,8 +1,25 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import React from "react";
+import Head from 'next/head'
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const router = useRouter();
+
+  return (
+    <React.StrictMode>
+      <AnimatePresence exitBeforeEnter>
+
+      <Head>
+        <title>Jae Park Portfolio</title>
+        <link rel="icon" href="/icon.png" />
+      </Head>
+      <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
+    </React.StrictMode>
+  );
 }
 
-export default MyApp
+export default MyApp;
