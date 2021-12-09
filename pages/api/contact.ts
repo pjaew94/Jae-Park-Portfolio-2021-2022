@@ -33,8 +33,8 @@ export default async function handler(
   `
 
   const data = {
-    to: email,
-    from: "Jae@jaepark.dev",
+    to: "hello@jaepark.dev",
+    from: "hello@jaepark.dev",
     subject: "New Portfolio Form Message",
     text: msg,
     html: msg.replace(/\r\n/g, '<br>')
