@@ -2,20 +2,31 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import mail from '@sendgrid/mail';
 import dotenv from "dotenv";
+import Cors from 'cors'
+import initMiddleware from '../../lib/init-middleware';
 
 dotenv.config();
 if(process.env.SENDGRID_API_KEY){
   mail.setApiKey(process.env.SENDGRID_API_KEY);
 }
 
+// Initialize the cors middleware
+const cors = initMiddleware(
+  // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ['GET', 'POST', 'OPTIONS'],
+  })
+)
 type Data = {
   name: string
 }
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  await cors(req, res)
 
   const {name, email, company, message} = req.body
 
@@ -34,7 +45,7 @@ export default function handler(
     html: msg.replace(/\r\n/g, '<br>')
   }
 
-  mail.send(data)
+  await mail.send(data)
 
   res.status(200).json( req.body )
 }
