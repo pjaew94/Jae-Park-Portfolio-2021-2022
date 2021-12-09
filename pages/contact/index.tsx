@@ -70,7 +70,7 @@ const ContactForm: React.FC<IContactFormComponent> = ({setIsLoading, setSendSucc
 
   const onSubmit = async (data: IContactForm) => {
     setIsLoading(true)
-      const res = await fetch('https://jaepark.dev/api/contact', {
+      const res = await fetch('https://www.jaepark.dev/api/contact', {
           method: "POST",
           headers: { "Content-Type": "application/json",  "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ data }),
