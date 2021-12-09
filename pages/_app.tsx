@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <Head>
         <title>Jae Park Portfolio</title>
-        <link rel="icon" href="/icon.png" />
+        <link rel="icon" href="/upRightArrow.svg" />
       </Head>
       <Component {...pageProps} key={router.route} />
       </AnimatePresence>
