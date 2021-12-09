@@ -1,1 +1,0 @@
-export const API_URL = process.env.NODE_ENV === 'production' ? 'https://www.jaepark.dev' : 'http://localhost:3000'

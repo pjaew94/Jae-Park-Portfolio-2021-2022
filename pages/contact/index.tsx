@@ -8,7 +8,7 @@ import SlideDownText from "../../components/Text/SlideDownText";
 import { IContactForm } from "../../types";
 import Image from 'next/image'
 import { Dispatch, SetStateAction, useState } from "react";
-import { API_URL } from "../../lib/url";
+import emailjs from 'emailjs-com';
 
 const Contact: NextPage = () => {
 
@@ -68,19 +68,25 @@ const ContactForm: React.FC<IContactFormComponent> = ({setIsLoading, setSendSucc
     handleSubmit,
     formState: { errors },
   } = useForm<IContactForm>();
+  const serviceID = process.env.EMAILJS_SERVICE_ID!;
+  const templateID = process.env.EMAILJS_TEMPLATE_ID!;
+  const userID = process.env.EMAILJS_USER_ID!;
+
 
   const onSubmit = async (data: IContactForm) => {
     setIsLoading(true)
-      const res = await fetch(`${API_URL}/api/contact`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json",  "Access-Control-Allow-Origin": "*" },
-      body: JSON.stringify({ data }),
+      const sendEmail = (serviceID: string, templateID:string , variables: any, userID: string) => {
+      emailjs.send(serviceID, templateID, variables, userID).then((res) => {
+        setIsLoading(false);
+        setSendSuccess(data.name.split(' ')[0])
+      }).catch(err => {
+        console.error(err)
       })
+    }
 
-      const done = await res.json();
-      console.log(done)
-      setIsLoading(false)
-      setSendSuccess(data.name.split(' ')[0])
+     sendEmail(serviceID, templateID, data, userID)
+    
+
   };
 
   return (
