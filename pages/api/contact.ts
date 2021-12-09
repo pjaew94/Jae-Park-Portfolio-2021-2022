@@ -33,14 +33,14 @@ export default async function handler(
   `
 
   const data = {
-    to: "hello@jaepark.dev",
+    to: "jaewp94@gmail.com",
     from: "hello@jaepark.dev",
     subject: "New Portfolio Form Message",
     text: msg,
     html: msg.replace(/\r\n/g, '<br>')
   }
 
-  await mail.send(data)
+  const result = await mail.send(data)
 
-  res.status(200).json( req.body )
+  res.status(200).json( result )
 }

@@ -70,7 +70,7 @@ const ContactForm: React.FC<IContactFormComponent> = ({setIsLoading, setSendSucc
 
   const onSubmit = async (data: IContactForm) => {
     setIsLoading(true)
-      const res = await fetch('https://www.jaepark.dev/api/contact', {
+      const res = await fetch('http://localhost:3000/api/contact', {
           method: "POST",
           headers: { "Content-Type": "application/json",  "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ data }),
@@ -84,17 +84,17 @@ const ContactForm: React.FC<IContactFormComponent> = ({setIsLoading, setSendSucc
 
   return (
       
-    <motion.form onSubmit={handleSubmit(onSubmit)}  className='flex justify-center w-screen border-t border-b border-black 2xl:border-b-2 2xl:border-t-2'
+    <motion.form onSubmit={handleSubmit(onSubmit)}  className='flex justify-center w-screen border-t border-b border-black'
         variants={fadeInVariant}
         initial='initial'
         animate='animate'
         exit='exit'
     >
-      <div className="flex flex-col w-full  md:w-8/12 md:border-r md:border-l md:border-black xl:w-6/12 2xl:w-4/12 2xl:border-r-2 2xl:border-l-2">
-        <input className='px-5 py-5 border-b border-black placeholder-black 2xl:border-b-2  focus:outline-none' {...register ("name", {required: "Please enter your name."})} placeholder="Enter your name" />
-        <input className='px-5 py-5 border-b border-black placeholder-black 2xl:border-b-2  focus:outline-none' {...register ("email", {required: "Please enter your email address."})} placeholder="Enter your email address" />
-        <input className='px-5 py-5 border-b border-black placeholder-black 2xl:border-b-2  focus:outline-none' {...register ("company", {required: "Please enter your company name."})} placeholder="Enter your company name" />
-        <textarea rows={4} className='px-5 py-5 border-b border-black resize-none 2xl:border-b-2 overflow-y-scroll placeholder-black  focus:outline-none' {...register ("message", {required: "Please enter your message."})} placeholder="Enter message" />
+      <div className="flex flex-col w-full  md:w-8/12 md:border-r md:border-l md:border-black xl:w-6/12 2xl:w-4/12 ">
+        <input className='px-5 py-5 border-b border-black placeholder-black   focus:outline-none' {...register ("name", {required: "Please enter your name."})} placeholder="Enter your name" />
+        <input className='px-5 py-5 border-b border-black placeholder-black   focus:outline-none' {...register ("email", {required: "Please enter your email address."})} placeholder="Enter your email address" />
+        <input className='px-5 py-5 border-b border-black placeholder-black   focus:outline-none' {...register ("company", {required: "Please enter your company name."})} placeholder="Enter your company name" />
+        <textarea rows={4} className='px-5 py-5 border-b border-black resize-none  overflow-y-scroll placeholder-black  focus:outline-none' {...register ("message", {required: "Please enter your message."})} placeholder="Enter message" />
         <button className='flex justify-end items-center px-5 py-5 hover:line-through hover:text-customOrange' type='submit'><Text type='h4'>SEND</Text> <div className="relative h-3 w-3 ml-3 lg:h-5 lg:w-5">
                 <Image
                   layout="fill"
@@ -113,7 +113,7 @@ interface IContactSuccess {
   sendSuccess: string | null
 }
 const ContactSuccess:React.FC<IContactSuccess> = ({sendSuccess}) => {
-  return <motion.div className='flex justify-center w-screen border-t border-b border-black 2xl:border-b-2 2xl:border-t-2'
+  return <motion.div className='flex justify-center w-screen border-t border-b border-black  2xl:border-t-2'
   variants={fadeInVariant}
   initial='initial'
   animate='animate'
