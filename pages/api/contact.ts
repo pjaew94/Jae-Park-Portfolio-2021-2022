@@ -27,8 +27,8 @@ export default function handler(
   `
 
   const data = {
-    to: "jaewp94@gmail.com",
-    from: "pjaew94@gmail.com",
+    to: email,
+    from: "Jae@jaepark.dev",
     subject: "New Portfolio Form Message",
     text: msg,
     html: msg.replace(/\r\n/g, '<br>')
