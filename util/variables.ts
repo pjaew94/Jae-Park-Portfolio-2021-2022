@@ -237,6 +237,13 @@ export const projectInfoList: IProjectFullInfo[] = [
 
 export const workExperience: IWorkExperience[] = [
   {
+    startDate: "Jan 2021",
+    endDate: "Current",
+    jobTitle: "Full Stack Web Developer",
+    company: "Jesus Love Church",
+    companyLocation: "Lansdale, PA",
+  },
+  {
     startDate: "Aug 2019",
     endDate: "Current",
     jobTitle: "Private Tutor",

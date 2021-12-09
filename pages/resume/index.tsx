@@ -37,6 +37,8 @@ const ResumeLinks: React.FC = () => {
       <InternalLink text="Info" route="/" dotColor="bg-black" />
       <InternalLink text="Projects" route="/projects" dotColor="bg-gray-500" />
       <InternalLink text="Contact" route="/contact" dotColor="bg-gray-400" />
+
+      
     </div>
   );
 };
@@ -50,7 +52,7 @@ const ResumeSelection: React.FC<IResumeSelection> = ({
   setSelected,
 }) => {
   return (
-    <div className="w-full flex justify-center items-center py-24 lg:py-48">
+    <div className="w-full flex flex-col justify-center items-center py-24 lg:py-48">
       <div className="flex flex-col md:flex-row">
         <button onClick={() => setSelected("edu")}>
           <SlideDownText
@@ -83,6 +85,7 @@ const ResumeSelection: React.FC<IResumeSelection> = ({
           </SlideDownText>
         </button>
       </div>
+      <SlideDownText type='sm'><a href="/JaeParkResumeDev.docx" download={true} className='hover:line-through'>Download full resume here</a></SlideDownText>
     </div>
   );
 };
