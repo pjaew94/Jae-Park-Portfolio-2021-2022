@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import InternalLink from "../../components/Links/InternalLink";
 import SlideDownText from "../../components/Text/SlideDownText";
 import { IProjectDisplayComponent } from "../../types";
@@ -11,6 +11,7 @@ import SlideUpText from "../../components/Text/SlideUpText";
 import { projectDisplayList } from "../../util/variables";
 import { projectDispContainerVariant } from "../../animation";
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { myLoader } from "../../lib/helperFunc";
 
 const Projects: NextPage = () => {
 
@@ -115,13 +116,13 @@ const ProjectDisplay: React.FC<IProjectDisplayComponent> = ({
             >
          
               <Image
+                placeholder='blur'
+                blurDataURL={imgSrc}
                 src={imgSrc}
                 layout="fill"
                 objectFit="cover"
                 priority={true}
                 alt="dude"
-                placeholder="blur"
-                blurDataURL="https://portfolio-final-jae.s3.amazonaws.com/filler.png"
               />
  
             </motion.div>
