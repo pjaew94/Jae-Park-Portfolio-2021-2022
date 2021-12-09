@@ -41,11 +41,11 @@ export default async function handler(
   }
 
   try {
-    const result = await mail.send(data)
+    await mail.send(data)
 
-    res.status(200).json( result )
+    res.status(200).json({success:true} )
   } catch (err) {
-    res.status(404).json(err)
+    res.status(404).json({success:false})
   }
 
 }

@@ -8,6 +8,7 @@ import SlideDownText from "../../components/Text/SlideDownText";
 import { IContactForm } from "../../types";
 import Image from 'next/image'
 import { Dispatch, SetStateAction, useState } from "react";
+import { API_URL } from "../../lib/url";
 
 const Contact: NextPage = () => {
 
@@ -70,7 +71,7 @@ const ContactForm: React.FC<IContactFormComponent> = ({setIsLoading, setSendSucc
 
   const onSubmit = async (data: IContactForm) => {
     setIsLoading(true)
-      const res = await fetch('https://www.jaepark.dev/api/contact', {
+      const res = await fetch(`${API_URL}/api/contact`, {
           method: "POST",
           headers: { "Content-Type": "application/json",  "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ data }),
@@ -113,7 +114,7 @@ interface IContactSuccess {
   sendSuccess: string | null
 }
 const ContactSuccess:React.FC<IContactSuccess> = ({sendSuccess}) => {
-  return <motion.div className='flex justify-center w-screen border-t border-b border-black  2xl:border-t-2'
+  return <motion.div className='flex justify-center w-screen border-t border-b border-black'
   variants={fadeInVariant}
   initial='initial'
   animate='animate'
