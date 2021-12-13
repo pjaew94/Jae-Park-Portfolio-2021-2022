@@ -49,7 +49,7 @@ const ContactDisplay: React.FC = () => {
 
 const ContactLinks: React.FC = () => {
   return (
-    <div className="grid grid-rows-3 lg:gap-2 absolute bottom-5 right-5">
+    <div className="grid grid-rows-3 lg:gap-2 fixed bottom-5 right-5">
       <InternalLink text="Info" route="/" dotColor="bg-black" />
       <InternalLink text="Projects" route="/projects" dotColor="bg-gray-500" />
       <InternalLink text="Resume" route="/resume" dotColor="bg-gray-400" />
