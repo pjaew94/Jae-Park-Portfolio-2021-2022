@@ -15,7 +15,7 @@ const Contact: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [sendSuccess, setSendSuccess] = useState<string | null>(null);
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-col w-screen min-h-screen">
       <ContactHeader />
       <ContactDisplay />
       {sendSuccess ? <ContactSuccess sendSuccess={sendSuccess}/>:<ContactForm 

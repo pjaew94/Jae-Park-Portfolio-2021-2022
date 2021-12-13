@@ -27,7 +27,7 @@ const Projects: NextPage = () => {
   }, []);
 
   return (
-    <div id="main" className="flex items-center min-w-screen overflow-x-hidden h-screen">
+    <div id="main" className="flex items-center min-w-screen overflow-x-hidden min-h-screen">
       <ProjectsHeader />
       <ProjectLinks />
     

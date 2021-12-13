@@ -12,7 +12,7 @@ const Resume: NextPage = ({}) => {
   const [selected, setSelected] = useState<"edu" | "work" | "tech">("edu");
 
   return (
-    <div>
+    <div className='flex flex-col min-h-screen w-screen'>
       <ResumeHeader />
       <ResumeLinks />
       <ResumeSelection selected={selected} setSelected={setSelected} />
